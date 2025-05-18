@@ -1,0 +1,345 @@
+@import "./variables"; //henter variables.scss til Dashboard.scss for å sørge for korrekt stilsetting
+
+.dashboard-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: $primary-color;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin: 20px 0;
+    color: $text-color;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+    margin: 15px 0;
+    color: $text-color;
+  }
+}
+
+.login-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-md;
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  .login-form {
+    .form-group {
+      margin-bottom: 20px;
+      
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+      }
+      
+      input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: $border-radius-sm;
+        font-size: 1rem;
+        
+        &:focus {
+          border-color: $primary-color;
+          outline: none;
+        }
+      }
+    }
+    
+    .login-button {
+      width: 100%;
+      padding: 12px;
+      background-color: $primary-color;
+      color: white;
+      border: none;
+      border-radius: $border-radius-sm;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color $transition-normal;
+      
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+      
+      &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+    }
+    
+    .login-error {
+      color: $error-color;
+      margin-bottom: 15px;
+      padding: 10px;
+      background-color: rgba($error-color, 0.1);
+      border-radius: $border-radius-sm;
+      text-align: center;
+    }
+  }
+  
+  .test-users {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    
+    h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+    
+    p {
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+    
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      
+      li {
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+        
+        strong {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+
+
+.sanity-data-section {
+  margin: 40px 0;
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
+
+
+.events-grid, .wishlist-grid, .purchases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); //minmax angir minimum og maksimum-bredde for et element
+  gap: 20px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.sanity-event-card, .wishlist-item, .purchase-item {
+  background-color: white;
+  border-radius: $border-radius-md;
+  padding: 15px;
+  box-shadow: $shadow-sm;
+  transition: transform $transition-normal, box-shadow $transition-normal;
+  text-align: center;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-md;
+  }
+  
+  h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: $text-color;
+    padding: 10px 0;
+  }
+}
+
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.user-card {
+  background-color: white;
+  border-radius: $border-radius-md;
+  padding: 20px;
+  box-shadow: $shadow-sm;
+  
+  h4 {
+    margin: 0 0 15px;
+    font-size: 1.2rem;
+    color: $text-color;
+  }
+  
+  p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: $text-secondary;
+  }
+  
+  .user-events {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    
+    p {
+      margin: 5px 0;
+    }
+  }
+}
+
+.user-dashboard {
+  margin-top: 40px;
+}
+
+.user-profile {
+  background-color: white;
+  border-radius: $border-radius-md;
+  padding: 25px;
+  box-shadow: $shadow-md;
+  margin-bottom: 30px;
+  
+  h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .profile-details {
+    display: flex;
+    align-items: center;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .profile-image {
+      flex: 0 0 200px;
+      margin-right: 30px;
+      
+      @media (max-width: 768px) {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+      
+      img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: $shadow-sm;
+      }
+    }
+    
+    .profile-info {
+      flex: 1;
+      
+      h3 {
+        margin-top: 0;
+        font-size: 1.5rem;
+        color: $primary-color;
+      }
+      
+      p {
+        margin: 10px 0;
+        font-size: 1rem;
+        color: $text-secondary;
+      }
+    }
+  }
+}
+
+.user-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+  }
+  
+  .wishlist-section, .purchases-section, .friends-section {
+    background-color: white;
+    border-radius: $border-radius-md;
+    padding: 20px;
+    box-shadow: $shadow-sm;
+    
+    h3 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: $primary-color;
+      text-align: center;
+    }
+  }
+  
+  .friends-section {
+    grid-column: 1 / -1;
+  }
+}
+
+.friends-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.friend-card {
+  background-color: #f9f9f9;
+  border-radius: $border-radius-md;
+  padding: 15px;
+  box-shadow: $shadow-sm;
+  
+  h4 {
+    margin: 0 0 10px;
+    font-size: 1.1rem;
+    color: $text-color;
+  }
+  
+  .common-events {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: rgba($primary-color, 0.1);
+    border-radius: $border-radius-sm;
+    
+    p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: $text-color;
+    }
+  }
+}
