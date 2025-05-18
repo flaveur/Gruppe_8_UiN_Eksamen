@@ -11,7 +11,7 @@ const EventCard = ({ id, name, date, location, imageUrl }) => {
   const [imageError, setImageError] = useState(false)
 
 
-  //denne funksjonen er for å legge til eller fjerne arrangementet fra ønskelista
+  //Denne funksjonen er for å legge til eller fjerne arrangementet fra ønskelista.
   const toggleWishlist = (e) => {
     e.preventDefault()
     e.stopPropagation()

@@ -48,7 +48,7 @@ const Dashboard = ({ isLoggedIn: propIsLoggedIn, currentUser: propCurrentUser, o
         })
         setEventDetails(detailsMap)
       } catch (error) {
-        console.error("Error fetching Sanity data:", error)
+        console.error("Error", error)
       }
     }
 
