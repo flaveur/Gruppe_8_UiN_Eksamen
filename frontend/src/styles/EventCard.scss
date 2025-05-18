@@ -1,0 +1,105 @@
+@import "./variables";
+
+.event-card {
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  height: 100%;
+  background-color: white;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .wishlist-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    font-size: 16px;
+    
+    &.wishlisted {
+      color: #e91e63;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+  }
+
+  .event-image-container {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    
+    .event-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .event-image-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f0f0f0;
+      color: #666;
+      font-size: 36px;
+      font-weight: bold;
+    }
+  }
+
+  .event-info {
+    padding: 15px;
+    
+    h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      color: #333;
+      font-weight: bold;
+    }
+    
+    p {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #666;
+      
+      &.event-date {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+//ikke klikkbare kort: !
+.non-clickable {
+  cursor: default;
+  
+  &:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .event-card {
+    .event-image-container {
+      height: 150px;
+    }
+  }
+}

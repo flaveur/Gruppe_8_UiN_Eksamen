@@ -1,0 +1,237 @@
+.category-page {
+  display: flex; //flex for layout
+  flex-direction: column; //column = innhold vises vertikalt
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  .category-header {
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #1a1a2e;
+    }
+
+    .filter-section {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .search-form {
+        display: flex;
+        gap: 10px;
+
+        .search-input {
+          flex: 1;
+          padding: 10px 16px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          font-size: 1rem;
+        }
+
+        .search-button {
+          background-color: #1a1a2e;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          font-weight: 500;
+          cursor: pointer;
+          transition: background-color 0.3s;
+
+          &:hover {
+            background-color: #2a2a4e;
+          }
+        }
+      }
+
+      .filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+
+        .filter-group {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          flex: 1;
+          min-width: 200px;
+
+          label {
+            font-size: 0.9rem;
+            color: #666;
+          }
+
+          select,
+          input {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+
+  .category-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    section {
+      background-color: white;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+      h2 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: #1a1a2e;
+      }
+    }
+
+    .events-grid,
+    .attractions-grid,
+    .venues-grid,
+    .wishlist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); //minmax angir minimum og maksimum bredde for et element
+      gap: 20px;
+    }
+
+    .attraction-card,
+    .venue-card {
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+      }
+
+      .attraction-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      h3 {
+        padding: 15px 15px 5px;
+        font-size: 1.2rem;
+        color: #1a1a2e;
+      }
+
+      p {
+        padding: 0 15px 15px;
+        font-size: 0.9rem;
+        color: #666;
+      }
+    }
+
+    .wishlist-section {
+      background-color: #f8f8f8;
+    }
+  }
+}
+
+/*responsivt*/
+@media (max-width: 768px) {
+  .category-page {
+    .category-header {
+      padding: 20px;
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .filter-section {
+        .search-form {
+          flex-direction: column;
+        }
+
+        .search-button {
+          width: 100%;
+        }
+
+        .filters {
+          flex-direction: column;
+
+          .filter-group {
+            min-width: 100%;
+          }
+        }
+      }
+    }
+
+    .category-content {
+      section {
+        padding: 20px;
+      }
+
+      .events-grid,
+      .attractions-grid,
+      .venues-grid,
+      .wishlist-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .category-page {
+    padding: 0 15px;
+
+    .category-header {
+      padding: 15px;
+
+      h1 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+      }
+
+      .filter-section {
+        .search-input {
+          padding: 8px 12px;
+        }
+
+        .search-button {
+          padding: 8px 15px;
+        }
+      }
+    }
+
+    .category-content {
+      section {
+        padding: 15px;
+
+        h2 {
+          font-size: 1.4rem;
+          margin-bottom: 15px;
+        }
+      }
+
+      .events-grid,
+      .attractions-grid,
+      .venues-grid,
+      .wishlist-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .attraction-image {
+        height: 180px;
+      }
+    }
+  }
+}
