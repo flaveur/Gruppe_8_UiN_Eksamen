@@ -1,0 +1,139 @@
+@import "./variables"; //henter variables.scss inn i CategoryPage.scss for å sørge for korrekt stilsetting
+
+.category-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .category-section {
+    margin-bottom: 30px;
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #333;
+      border-bottom: 1px solid #e91e63;
+      padding-bottom: 5px;
+      display: inline-block;
+    }
+  }
+
+  .items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); //minmax angir minimum og maksimum-bredde på et element
+    gap: 20px;
+  }
+
+  .category-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    background-color: white;
+    position: relative;
+    
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    .wishlist-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      font-size: 16px;
+      
+      &.wishlisted {
+        color: #e91e63;
+      }
+    }
+
+    .card-image-container {
+      height: 180px;
+      overflow: hidden;
+      
+      .card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .card-info {
+      padding: 15px;
+      
+      h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: #333;
+      }
+      
+      p {
+        margin: 5px 0;
+        color: #666;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    color: #666;
+    border: 1px dashed #ddd;
+  }
+
+  .loading, .error {
+    text-align: center;
+    padding: 30px;
+    font-size: 18px;
+  }
+
+  .error {
+    color: red;
+  }
+  //responsivt
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 20px;
+    }
+    
+    .items-grid {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    .category-card .card-image-container {
+      height: 150px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 18px;
+    }
+    
+    .items-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
