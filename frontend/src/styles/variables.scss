@@ -1,0 +1,47 @@
+//Microsoft Copilot anbefalte oss å sette opp en felles variabel-fil, slik at det blir lettere for alle i gruppa å følge en slags standard for stilsetting av sidene våre.
+//Når man trenger en spesiell stil kan man hente dem herfra.
+//standarder for siden vår:
+
+//Farger
+$primary-color: #e31b6d;
+$secondary-color: #04c2c9;
+$accent-color: #e31b6d;
+$background-color: #f9f9f9;
+$text-color: #333;
+$text-secondary: #666;
+$error-color: #d32f2f;
+$success-color: #388e3c;
+
+//Typografi
+$font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+$font-size-base: 16px;
+$line-height-base: 1.5;
+
+//Spacing
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+//Breakpoints
+$breakpoint-xs: 480px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 992px;
+$breakpoint-lg: 1200px;
+
+//Skygger
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
+
+//Overganger
+$transition-fast: 0.2s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+//Border radius
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-xl: 16px;

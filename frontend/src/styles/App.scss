@@ -1,0 +1,149 @@
+@import "./variables"; // Importerer variabler fra en separat fil, f.eks. farger, fonter og spacing
+
+* {
+  box-sizing: border-box; // Inkluderer padding og border i elementets totalbredde
+  margin: 0; // Fjerner standard margin
+  padding: 0; // Fjerner standard padding
+}
+
+body {
+  font-family: $font-family; // Setter skrifttype definert i variabler
+  font-size: $font-size-base; // Grunnstørrelse på tekst
+  line-height: $line-height-base; // Avstand mellom linjer
+  color: $text-color; // Farge på tekst
+  background-color: $background-color; // Bakgrunnsfarge på siden
+}
+
+.app {
+  display: flex; // Bruker Flexbox for layout
+  flex-direction: column; // Plasserer barn i kolonne
+  min-height: 100vh; // Sørger for at appen fyller hele høyden på skjermen
+}
+
+.main-content {
+  flex: 1; // Fyller tilgjengelig plass
+  padding: $spacing-md 0; // Topp og bunn-padding
+}
+
+a {
+  color: $primary-color; // Farge på lenker
+  text-decoration: none; // Fjerner understrek på lenker
+  transition: color $transition-normal; // Animerer fargeendring ved hover
+
+  &:hover {
+    color: darken($primary-color, 10%); // Gjør lenkefarge mørkere ved hover
+  }
+}
+
+button {
+  cursor: pointer; // Endrer musepeker til hånd ved hover
+  border: none; // Fjerner standard kantlinje
+  background-color: $primary-color; // Setter bakgrunnsfarge fra variabel
+  color: white; // Hvit tekst
+  padding: $spacing-sm $spacing-md; // Innvendig padding
+  border-radius: $border-radius-sm; // Avrundede hjørner
+  font-family: $font-family; // Samme skrifttype som resten av appen
+  font-size: $font-size-base; // Standard tekststørrelse
+  transition: background-color $transition-normal; // Jevn overgang ved fargeendring
+
+  &:hover {
+    background-color: darken($primary-color, 10%); // Gjør knappen mørkere ved hover
+  }
+
+  &:disabled {
+    background-color: #ccc; // Grå bakgrunn når deaktivert
+    cursor: not-allowed; // Endrer musepeker til “ikke tillatt”
+  }
+}
+
+input, textarea, select {
+  font-family: $font-family; // Skrifttype som matcher resten
+  font-size: $font-size-base; // Standard tekststørrelse
+  padding: $spacing-sm; // Innvendig plass
+  border: 1px solid #ddd; // Lys grå kant
+  border-radius: $border-radius-sm; // Litt avrundede hjørner
+  width: 100%; // Fyller hele bredden til containeren
+
+  &:focus {
+    outline: none; // Fjerner standard blå outline
+    border-color: $primary-color; // Endrer kantfarge ved fokus
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: $spacing-md; // Plass under overskrifter
+  font-weight: 500; // Halvtykk skrift
+}
+
+p {
+  margin-bottom: $spacing-md; // Plass under avsnitt
+}
+
+.container {
+  max-width: 1200px; // Maks bredde på container
+  margin: 0 auto; // Sentrerer containeren horisontalt
+  padding: 0 $spacing-md; // Horisontal padding
+}
+
+.btn {
+  display: inline-block; // Knappen vises på linje men kan ha bredde/høyde
+  padding: $spacing-sm $spacing-lg; // Innvendig plass
+  background-color: $primary-color; // Primærfarge på bakgrunn
+  color: white; // Hvit tekst
+  border-radius: $border-radius-sm; // Litt avrundede hjørner
+  text-align: center; // Sentrerer tekst i knappen
+  text-decoration: none; // Fjerner understrek
+  transition: background-color $transition-normal; // Jevn overgang ved hover
+
+  &:hover {
+    background-color: darken($primary-color, 10%); // Gjør knappen mørkere ved hover
+    color: white; // Sørger for at teksten fortsatt er hvit
+  }
+
+  &.btn-secondary {
+    background-color: $secondary-color; // Sekundærfarge for alternativ stil
+
+    &:hover {
+      background-color: darken($secondary-color, 10%); // Mørkere ved hover
+    }
+  }
+
+  &.btn-outline {
+    background-color: transparent; // Gjør bakgrunnen gjennomsiktig
+    border: 1px solid $primary-color; // Kantlinje i primærfargen
+    color: $primary-color; // Tekst i primærfargen
+
+    &:hover {
+      background-color: $primary-color; // Bakgrunn endres til primærfargen
+      color: white; // Teksten blir hvit
+    }
+  }
+}
+
+.text-center {
+  text-align: center; // Sentrerer tekst
+}
+
+// Margin-top hjelpeklasser
+.mt-1 { margin-top: $spacing-sm; }
+.mt-2 { margin-top: $spacing-md; }
+.mt-3 { margin-top: $spacing-lg; }
+.mt-4 { margin-top: $spacing-xl; }
+
+// Margin-bottom hjelpeklasser
+.mb-1 { margin-bottom: $spacing-sm; }
+.mb-2 { margin-bottom: $spacing-md; }
+.mb-3 { margin-bottom: $spacing-lg; }
+.mb-4 { margin-bottom: $spacing-xl; }
+
+// Margin-left hjelpeklasser
+.ml-1 { margin-left: $spacing-sm; }
+.ml-2 { margin-left: $spacing-md; }
+.ml-3 { margin-left: $spacing-lg; }
+.ml-4 { margin-left: $spacing-xl; }
+
+// Margin-right hjelpeklasser
+.mr-1 { margin-right: $spacing-sm; }
+.mr-2 { margin-right: $spacing-md; }
+.mr-3 { margin-right: $spacing-lg; }
+.mr-4 { margin-right: $spacing-xl; }
