@@ -1,0 +1,22 @@
+//App container rammer inn hele appen og sørger for at footer holder seg nederst
+.app-container {
+  display: flex; //Flexbox for vertikal layout
+  flex-direction: column; //Stabler elementene vertikalt
+  min-height: 100vh; //Sørger for at hele viewporten brukes
+}
+
+//hovedinnholdet på siden
+.main-content {
+  flex: 1; //Fyller tilgjengelig plass mellom header og footer
+  width: 100%; //Tar hele bredden av containeren
+  max-width: 1200px; //Maks bredde for bedre lesbarhet på store skjermer
+  margin: 0 auto; //Sentrerer innholdet horisontalt
+  padding: 2rem 1rem; //Luft rundt innholdet
+}
+
+//Responsivt design for mindre skjermer
+@media (max-width: 768px) {
+  .main-content {
+    padding: 1.5rem 1rem; //Mindre padding på små skjermer og mobil
+  }
+}

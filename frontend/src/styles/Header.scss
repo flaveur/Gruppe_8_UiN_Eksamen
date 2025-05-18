@@ -1,0 +1,231 @@
+@import "./variables";
+
+.site-header {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    @media (max-width: 992px) {
+      padding: 10px 15px;
+    }
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: $primary-color;
+      text-decoration: none;
+      
+      @media (max-width: 768px) {
+        font-size: 1.5rem;
+      }
+    }
+    
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      padding: 10px;
+      margin-left: 10px;
+      cursor: pointer;
+      
+      @media (max-width: 992px) {
+        display: block;
+      }
+      
+      .hamburger {
+        display: block;
+        position: relative;
+        width: 24px;
+        height: 2px;
+        background-color: $text-color;
+        transition: all 0.3s ease;
+        
+        &:before,
+        &:after {
+          content: '';
+          position: absolute;
+          width: 24px;
+          height: 2px;
+          background-color: $text-color;
+          transition: all 0.3s ease;
+        }
+        
+        &:before {
+          top: -8px;
+        }
+        
+        &:after {
+          bottom: -8px;
+        }
+        
+        &.active {
+          background-color: transparent;
+          
+          &:before {
+            top: 0;
+            transform: rotate(45deg);
+          }
+          
+          &:after {
+            bottom: 0;
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+  }
+  
+  .search-container {
+    flex: 1;
+    max-width: 500px;
+    margin: 0 20px;
+    
+    @media (max-width: 992px) {
+      order: 3;
+      margin: 15px 0 0;
+      max-width: 100%;
+      width: 100%;
+    }
+    
+    form {
+      display: flex;
+      position: relative;
+      
+      input {
+        flex: 1;
+        padding: 10px 40px 10px 15px;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        
+        &:focus {
+          outline: none;
+          border-color: $primary-color;
+        }
+      }
+      
+      button {
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        padding: 5px;
+        color: $text-secondary;
+        cursor: pointer;
+        
+        &:hover {
+          color: $primary-color;
+        }
+        
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+  
+  .main-nav {
+    @media (max-width: 992px) {
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      
+      &.mobile-open {
+        max-height: 300px;
+      }
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      
+      @media (max-width: 992px) {
+        flex-direction: column;
+        padding: 10px 0;
+      }
+      
+      li {
+        margin: 0 5px;
+        
+        @media (max-width: 992px) {
+          margin: 0;
+        }
+        
+        a {
+          display: block;
+          padding: 8px 15px;
+          color: $text-color;
+          text-decoration: none;
+          font-weight: 500;
+          border-radius: 4px;
+          transition: all 0.2s ease;
+          
+          &:hover,
+          &.active {
+            color: $primary-color;
+            background-color: rgba($primary-color, 0.1);
+          }
+          
+          @media (max-width: 992px) {
+            padding: 12px 15px;
+            border-radius: 0;
+          }
+        }
+        
+        .user-menu {
+          display: flex;
+          align-items: center;
+          
+          @media (max-width: 992px) {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          
+          .logout-button {
+            margin-left: 10px;
+            padding: 8px 15px;
+            background: none;
+            border: none;
+            color: $text-color;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            
+            &:hover {
+              color: $primary-color;
+              background-color: rgba($primary-color, 0.1);
+            }
+            
+            @media (max-width: 992px) {
+              margin: 0;
+              padding: 12px 15px;
+              width: 100%;
+              text-align: left;
+              border-radius: 0;}
+            }
+        }
+      }}}
+}

@@ -1,0 +1,350 @@
+@import "./variables";
+
+//Hovedinnpaking for forsiden
+.home-page {
+  max-width: 1200px; //Begrenset bredde for lesbarhet på store skjermer
+  margin: 0 auto; //Sentrerer innholdet horisontalt
+  padding: 20px;
+  
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: $primary-color;
+    text-align: center;
+  }
+}
+
+// Festivaler-seksjon
+.festivals-section {
+  margin-bottom: 40px;
+  
+  .festivals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); //Responsive kort via auto fill
+    gap: 20px;
+    
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); //Tablet tilpasset
+    }
+    
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr; //Mobil tilpasset
+    }
+  }
+  
+  .festival-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-5px); //Løfter kortet litt opp ved hover
+    }
+  }
+  
+  .festival-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    transition: box-shadow 0.3s ease; // Myk skyggeeffekt
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    &:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); //Dypere skygge ved hover
+    }
+    
+    .heart-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10;
+      padding: 5px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+      
+      &:hover {
+        transform: scale(1.2); //Liten zoom effekt ved hover
+      } 
+      
+    }
+    
+    .festival-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover; //Sørger for at bildet fyller området uten å forvrenges
+      display: block;
+    }
+    
+    .festival-info {
+      padding: 15px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      
+      h3 {
+        margin: 0 0 10px;
+        font-size: 1.2rem;
+        color: $text-color;
+      }
+      
+      .festival-date,
+      .festival-location {
+        margin: 5px 0;
+        font-size: 0.9rem;
+        color: $text-secondary;
+      }
+      
+      .festival-link {
+        margin-top: auto; //Plasserer lenken nederst
+        padding-top: 10px;
+        color: $primary-color;
+        font-weight: 500;
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+// Arrangementer-seksjon
+.events-section {
+  margin-bottom: 40px;
+  
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .event-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+  
+  .event-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    &:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .heart-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10;
+      padding: 5px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+      
+      &:hover {
+        transform: scale(1.2);
+      }
+      
+    }
+    
+    .event-image-container {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      
+      .event-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+        
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+    
+    .event-info {
+      padding: 15px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      
+      h3 {
+        margin: 0 0 10px;
+        font-size: 1.1rem;
+        color: $text-color;
+      }
+      
+      .event-date,
+      .event-location {
+        margin: 5px 0;
+        font-size: 0.9rem;
+        color: $text-secondary;
+      }
+    }
+  }
+  
+  .no-events {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 30px;
+    color: $text-secondary;
+    font-style: italic;
+  }
+}
+
+// Favoritter-seksjon
+.favorites-section {
+  margin-bottom: 40px;
+  
+  .favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .favorite-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+  
+  .favorite-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    transition: box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    &:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .heart-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10;
+      padding: 5px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+      
+      &:hover {
+        transform: scale(1.2);
+      }
+      
+    }
+    
+    .favorite-image-container {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      
+      .favorite-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+        
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+    
+    .favorite-info {
+      padding: 15px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      
+      h3 {
+        margin: 0 0 10px;
+        font-size: 1.1rem;
+        color: $text-color;
+      }
+      
+      .favorite-date {
+        margin: 5px 0;
+        font-size: 0.9rem;
+        color: $text-secondary;
+      }
+    }
+  }
+}
+
+// Loading og error states
+.loading,
+.error {
+  text-align: center;
+  padding: 50px 20px;
+  font-size: 1.2rem;
+  color: $text-secondary;
+}
+
+.error {
+  color: $error-color;
+}
+
+

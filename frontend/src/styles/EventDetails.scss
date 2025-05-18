@@ -1,0 +1,178 @@
+@import "./variables";
+
+.event-details {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  
+  .event-header {
+    display: flex;
+    margin-bottom: 30px;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+    
+    .event-image-container {
+      flex: 0 0 50%;
+      position: relative;
+      margin-right: 30px;
+      
+      @media (max-width: 768px) {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+      
+      .event-image {
+        width: 100%;
+        height: auto;
+        border-radius: $border-radius-md;
+        box-shadow: $shadow-md;
+      }
+    }
+    
+    .event-info {
+      flex: 1;
+      
+      h1 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 2rem;
+        color: $text-color;
+      }
+      
+      .event-meta {
+        margin-bottom: 25px;
+        
+        .meta-item {
+          margin-bottom: 10px;
+          
+          .meta-label {
+            font-weight: 500;
+            margin-right: 10px;
+            color: $text-secondary;
+          }
+          
+          .meta-value {
+            color: $text-color;
+          }
+        }
+      }
+      
+      .buy-tickets-button {
+        display: inline-block;
+        padding: 12px 25px;
+        background-color: $primary-color;
+        color: white;
+        border-radius: $border-radius-sm;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color $transition-normal;
+        
+        &:hover {
+          background-color: darken($primary-color, 10%);
+        }
+      }
+    }
+  }
+  
+  .event-content {
+    .event-section {
+      margin-bottom: 40px;
+      
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: $text-color;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+      }
+      
+      p {
+        line-height: 1.6;
+        color: $text-secondary;
+      }
+    }
+    
+    .attractions-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      
+      .attraction-item {
+        text-align: center;
+        
+        .attraction-image {
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin-bottom: 10px;
+        }
+        
+        h3 {
+          font-size: 1.1rem;
+          margin: 0;
+          color: $text-color;
+        }
+      }
+    }
+    
+    .venue-info {
+      h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        color: $text-color;
+      }
+      
+      p {
+        margin-bottom: 15px;
+      }
+      
+      .venue-link {
+        display: inline-block;
+        padding: 8px 15px;
+        background-color: $secondary-color;
+        color: white;
+        border-radius: $border-radius-sm;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: background-color $transition-normal;
+        
+        &:hover {
+          background-color: darken($secondary-color, 10%);
+        }
+      }
+    }
+  }
+  
+  .back-link-container {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    
+    .back-link {
+      display: inline-block;
+      padding: 10px 0;
+      color: $primary-color;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color $transition-normal;
+      
+      &:hover {
+        color: darken($primary-color, 10%);
+      }
+    }
+  }
+}
+
+.loading,
+.error {
+  text-align: center;
+  padding: 50px 20px;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: $error-color;
+}
