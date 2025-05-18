@@ -1,0 +1,186 @@
+.search-results-page {
+  max-width: 1200px; // Maks bredde på siden for å begrense innholdet
+  margin: 0 auto; // Sentrerer innholdet horisontalt
+  padding: 20px; // Litt innvendig mellomrom rundt hele innholdet
+  font-family: Arial, sans-serif; // Bruker Arial-skrifttype
+
+  h1 {
+    font-size: 24px; // Størrelsen på hovedoverskriften
+    margin-bottom: 20px; // Avstand under overskriften
+    color: #333; // Mørkegrå farge
+  }
+
+  .loading, .error, .no-results {
+    text-align: center; // Sentrerer teksten
+    padding: 30px; // Litt luft rundt teksten
+    font-size: 18px; // Større tekst for synlighet
+  }
+
+  .error {
+    color: red; // Rød tekst for feilmeldinger
+  }
+
+  .search-filters {
+    display: flex; // Bruker fleksibel layout for filtrene
+    justify-content: space-between; // Plasserer elementer med plass mellom seg
+    align-items: center; // Sentraliserer innholdet vertikalt
+    margin-bottom: 20px; // Avstand under filterseksjonen
+    flex-wrap: wrap; // Gjør at elementene hopper ned ved behov
+    gap: 15px; // Avstand mellom elementene
+    background-color: #f5f5f5; // Lys bakgrunnsfarge
+    padding: 15px; // Luft inni filterboksen
+    border-radius: 5px; // Runder hjørnene
+    border: 1px solid #ddd; // Lys grå kantlinje
+
+    .filter-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap; // Gjør at knappene brytes på mindre skjermer
+
+      button {
+        padding: 8px 15px; // Størrelse på knappene
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        cursor: pointer; // Viser "pekefinger" når du holder over
+        font-weight: bold;
+        font-size: 14px;
+
+        &:hover {
+          background-color: #f0f0f0; // Endrer bakgrunn ved hover
+        }
+
+        &.active {
+          background-color: #e91e63; // Fremhever aktiv knapp med rosa
+          color: white;
+          border-color: #e91e63;
+        }
+      }
+    }
+
+    .sort-options {
+      display: flex;
+      align-items: center;
+      gap: 10px; // Mellomrom mellom label og select
+
+      label {
+        font-weight: bold;
+        color: #555;
+        font-size: 14px;
+      }
+
+      select {
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background-color: white;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .results-section {
+    margin-bottom: 30px; // Avstand under seksjonen
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #333;
+      border-bottom: 1px solid #e91e63; // Rosa linje under overskriften
+      padding-bottom: 5px;
+      display: inline-block;
+    }
+  }
+
+  .results-grid {
+    display: grid; // Bruker grid-layout
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    // Lager så mange kolonner som passer, minimum 250px bredde
+    gap: 20px; // Mellomrom mellom kortene
+  }
+
+  .result-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Lett skygge for dybde
+    transition: transform 0.2s; // Animert bevegelse ved hover
+    background-color: white;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    
+    &:hover {
+      transform: translateY(-5px); // Løfter kortet litt opp når du holder over
+    }
+
+    .result-image {
+      height: 180px; // Fast høyde på bildecontaineren
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; // Sørger for at bildet dekker hele området
+      }
+    }
+
+    .result-info {
+      padding: 15px;
+
+      h3 {
+        margin: 0 0 10px;
+        font-size: 16px;
+        color: #333;
+      }
+
+      p {
+        margin: 5px 0;
+        font-size: 14px;
+        color: #666;
+
+        &.result-date {
+          font-weight: bold; // Fremhever dato
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    // Tilpasser for nettbrett og mindre skjermer
+    .search-filters {
+      flex-direction: column; // Stable filterinnhold vertikalt
+      align-items: flex-start;
+
+      .filter-buttons {
+        width: 100%;
+        overflow-x: auto; // Gjør knappene rullbare hvis det er mange
+        padding-bottom: 10px;
+
+        button {
+          white-space: nowrap; // Hindrer at teksten brytes
+        }
+      }
+
+      .sort-options {
+        width: 100%;
+        justify-content: flex-end; // Sortering plassert til høyre
+      }
+    }
+
+    .results-grid {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+      // Smalere kort for små skjermer
+    }
+
+    .result-card .result-image {
+      height: 150px; // Mindre høyde på bilder
+    }
+  }
+
+  @media (max-width: 480px) {
+    .results-grid {
+      grid-template-columns: 1fr; // Én kolonne på veldig små skjermer
+    }
+  }
+}
