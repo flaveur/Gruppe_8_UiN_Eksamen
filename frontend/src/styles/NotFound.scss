@@ -1,0 +1,50 @@
+@import "./variables";
+
+//Stil for error siden/side ikke funnet
+.not-found-page {
+  display: flex; //bruker flexbox for å sentrere innholdet
+  justify-content: center; //sentrerer innholdet horisontalt 
+  align-items: center; //Sentrerer vertikalt
+  min-height: 70vh; //Sørger for at innholdet tar opp mesteparten av høyden
+  padding: 20px; //Litt luft rundt for mobil
+  
+  .not-found-content {
+    text-align: center; //Sentrerer teksten
+    max-width: 600px; //Begrenser bredden for bedre lesbarhet
+    
+    h1 {
+      font-size: 8rem; //Stor overskrift
+      margin: 0; //Fjerner standarmargin
+      color: $primary-color; //Bruker definert primærfarge fra variabler
+      line-height: 1; 
+    }
+    
+    h2 {
+      font-size: 2rem; //Underoverskrift
+      margin: 0 0 20px; //Luft under paragrafen
+      color: $text-color; //Lysere farge for mindre viktig informasjon
+    }
+    
+    p {
+      font-size: 1.2rem; //Normal tekst
+      margin-bottom: 30px; //Luft under paragrafen
+      color: $text-secondary; //Lysere farge for viktig mindre informasjon
+    }
+    
+    .home-link {
+      display: inline-block; //Gjør knappen til inline blokk
+      padding: 12px 25px; //Størrelse på knappen
+      background-color: $primary-color; //Hovedfargen
+      color: white; //Tekstfarge
+      border-radius: $border-radius-sm; //Myke kanter
+      text-decoration: none; //Fjerner understrek
+      font-weight: 500; //Litt tykkere tekst
+      transition: background-color $transition-normal; //Glatt overgang ved hover
+      
+      &:hover {
+        background-color: darken($primary-color, 10%);
+        //Mørkere farge ved hover, scss funksjon
+      }
+    }
+  }
+}
